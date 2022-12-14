@@ -91,7 +91,7 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
                 controller: scrollController,
                 itemExtent: itemHeight,
                 onSelectedItemChanged: _onSelectedItemChanged,
-                physics: FixedExtentScrollPhysics(),
+              //  physics: FixedExtentScrollPhysics(),
               ),
             ),
             Center(child: widget.showDivider ? Divider() : Container()),
@@ -117,7 +117,7 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
   void _itemTapped(TapUpDetails details) {
     Offset position = details.localPosition;
     double center = widgetHeight / 2;
-    double changeBy = position.dy /*- center*/;
+    double changeBy = position.dy - center;
     double newPosition = scrollController.offset + changeBy;
 
     // animate to and center on the selected item
