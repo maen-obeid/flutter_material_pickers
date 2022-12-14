@@ -90,7 +90,7 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
                 controller: scrollController,
                 itemExtent: itemHeight,
                 onSelectedItemChanged: _onSelectedItemChanged,
-                physics: RangeMaintainingScrollPhysics(),
+                physics: FixedExtentScrollPhysics(),
               ),
             ),
             IgnorePointer(child: Center(child: widget.showDivider ? Divider() : Container())),
