@@ -94,20 +94,22 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
                 physics: FixedExtentScrollPhysics(),
               ),
             ),
-            // Center(child: widget.showDivider ? Divider() : Container()),
-            // Center(
-            //   child: Container(
-            //     height: itemHeight,
-            //     decoration: BoxDecoration(
-            //       border: Border(
-            //         top: BorderSide(
-            //             color: themeData.colorScheme.secondary, width: 1.0),
-            //         bottom: BorderSide(
-            //             color: themeData.colorScheme.secondary, width: 1.0),
-            //       ),
-            //     ),
-            //   ),
-            // )
+           IgnorePointer(child: Center(child: widget.showDivider ? Divider() : Container())),
+            IgnorePointer(
+              child: Center(
+                child: Container(
+                  height: itemHeight,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                          color: themeData.colorScheme.secondary, width: 1.0),
+                      bottom: BorderSide(
+                          color: themeData.colorScheme.secondary, width: 1.0),
+                    ),
+                  ),
+                ),
+              ),
+            )
           ],
         );
       },
