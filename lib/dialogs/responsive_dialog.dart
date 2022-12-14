@@ -101,7 +101,7 @@ class _ResponsiveDialogState extends State<ResponsiveDialog> {
     var localizations = MaterialLocalizations.of(context);
 
     return Container(
-      height: kDialogActionBarHeight,
+      //height: kDialogActionBarHeight,
       child: Container(
         decoration: BoxDecoration(
           border: Border(
