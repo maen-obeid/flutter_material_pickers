@@ -91,23 +91,23 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
                 controller: scrollController,
                 itemExtent: itemHeight,
                 onSelectedItemChanged: _onSelectedItemChanged,
-                physics: ClampingScrollPhysics(),
+                physics: FixedExtentScrollPhysics(),
               ),
             ),
-            Center(child: widget.showDivider ? Divider() : Container()),
-            Center(
-              child: Container(
-                height: itemHeight,
-                decoration: BoxDecoration(
-                  border: Border(
-                    top: BorderSide(
-                        color: themeData.colorScheme.secondary, width: 1.0),
-                    bottom: BorderSide(
-                        color: themeData.colorScheme.secondary, width: 1.0),
-                  ),
-                ),
-              ),
-            )
+            // Center(child: widget.showDivider ? Divider() : Container()),
+            // Center(
+            //   child: Container(
+            //     height: itemHeight,
+            //     decoration: BoxDecoration(
+            //       border: Border(
+            //         top: BorderSide(
+            //             color: themeData.colorScheme.secondary, width: 1.0),
+            //         bottom: BorderSide(
+            //             color: themeData.colorScheme.secondary, width: 1.0),
+            //       ),
+            //     ),
+            //   ),
+            // )
           ],
         );
       },
