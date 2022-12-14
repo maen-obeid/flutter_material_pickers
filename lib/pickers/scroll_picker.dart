@@ -60,8 +60,8 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     TextStyle? defaultStyle = themeData.textTheme.bodyText2;
-    TextStyle? selectedStyle = themeData.textTheme.headline5
-        ?.copyWith(color: themeData.colorScheme.secondary);
+    TextStyle? selectedStyle =
+        themeData.textTheme.headline5?.copyWith(color: themeData.colorScheme.secondary);
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
@@ -72,8 +72,8 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
             GestureDetector(
               onTapUp: _itemTapped,
               child: ListWheelScrollView.useDelegate(
-                childDelegate: ListWheelChildBuilderDelegate(
-                    builder: (BuildContext context, int index) {
+                childDelegate:
+                    ListWheelChildBuilderDelegate(builder: (BuildContext context, int index) {
                   if (index < 0 || index > widget.items.length - 1) {
                     return null;
                   }
@@ -84,27 +84,24 @@ class _ScrollPickerState<T> extends State<ScrollPicker<T>> {
                       (value == selectedValue) ? selectedStyle : defaultStyle;
 
                   return Center(
-                    child: Text(widget.transformer?.call(value) ?? '$value',
-                        style: itemStyle),
+                    child: Text(widget.transformer?.call(value) ?? '$value', style: itemStyle),
                   );
                 }),
                 controller: scrollController,
                 itemExtent: itemHeight,
                 onSelectedItemChanged: _onSelectedItemChanged,
-                physics: FixedExtentScrollPhysics(),
+                physics: RangeMaintainingScrollPhysics(),
               ),
             ),
-           IgnorePointer(child: Center(child: widget.showDivider ? Divider() : Container())),
+            IgnorePointer(child: Center(child: widget.showDivider ? Divider() : Container())),
             IgnorePointer(
               child: Center(
                 child: Container(
                   height: itemHeight,
                   decoration: BoxDecoration(
                     border: Border(
-                      top: BorderSide(
-                          color: themeData.colorScheme.secondary, width: 1.0),
-                      bottom: BorderSide(
-                          color: themeData.colorScheme.secondary, width: 1.0),
+                      top: BorderSide(color: themeData.colorScheme.secondary, width: 1.0),
+                      bottom: BorderSide(color: themeData.colorScheme.secondary, width: 1.0),
                     ),
                   ),
                 ),
